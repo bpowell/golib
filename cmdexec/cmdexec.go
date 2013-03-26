@@ -15,7 +15,7 @@ func NewCmdExec(log *log.Logger) *CmdExec {
     return &CmdExec{log: log}
 }
 
-func (c *CmdExec) Exec(command string) {
+func (c *CmdExec) Exec(command string) bool {
     var out bytes.Buffer
     s := strings.Split(command, " ")
     pgrm := s[0]
@@ -30,4 +30,6 @@ func (c *CmdExec) Exec(command string) {
     }
 
     c.log.Println(out.String())
+
+    return (cmd.ProcessState).Success()
 }

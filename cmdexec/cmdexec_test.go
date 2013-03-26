@@ -11,5 +11,5 @@ func TestCmdExec(t *testing.T) {
     args := "aux"
 
     c := cmdexec.NewCmdExec(log)
-    c.Exec(pgrm+" "+args)
+    _ = c.Exec(pgrm+" "+args)
 }
